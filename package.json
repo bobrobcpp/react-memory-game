@@ -13,7 +13,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "babel-cli": "6.24.1"
+    "babel-cli": "6.24.1",
+    "file-loader": "^1.1.6",
+    "url-loader": "^0.6.2"
   },
   "dependencies": {
     "babel-core": "6.25.0",
