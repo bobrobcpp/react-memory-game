@@ -4,7 +4,7 @@ import cardBack from './Card_back.png';
 export default class Card extends React.Component {
   state = {
     show: false,
-    character: this.props.character[0]
+    character: this.props.character
   };
 
   handleFlip = () => {
@@ -18,15 +18,24 @@ export default class Card extends React.Component {
   handleClick = () => {
     this.handleFlip();
     this.props.incrementTurn(this.state.character);
+    this.resetCard;
   };
 
   resetCard = () => {
-    this.setState(() => {
-      return {
-        show: false
-      };
-    });
+    if (this.props.turn === 2) {
+      setTimeout(() => {
+        this.setState(() => {
+          return {
+            show: false
+          };
+        });
+      }, 1100);
+    }
   };
+
+  componentWillReceiveProps(props) {
+    this.resetCard(props);
+  }
 
   render() {
     return (
